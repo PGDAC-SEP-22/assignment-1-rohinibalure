@@ -1,0 +1,45 @@
+Exercise 1
+
+
+A university DB contains information about professors (identified by SIN) and courses (identified by course ID). Professors teach courses; each of the following situations concerns the Teaches relationship set. 
+
+List all candidate keys of the Teaches relationship set. a. Professors can teach the same course in several semesters, and each offering must be recorded. b. Professors can teach the same course in several semesters, but only the most recent such offering needs to be records. Assume the above Situation (b) applies in all subsequent situations. 
+
+List all the keys possible in each of the following situations.
+
+a. Every professor teaches a course, and every course is taught by some professor. b. Every professor teaches exactly one course, and every course is taught by exactly one professor.
+
+
+
+
+mysql> desc professors;
++-----------+-------------+------+-----+---------+-------+
+| Field     | Type        | Null | Key | Default | Extra |
++-----------+-------------+------+-----+---------+-------+
+| SIN       | int         | NO   | PRI | NULL    |       |
+| prof_name | varchar(20) | YES  |     | NULL    |       |
+| course_id | varchar(6)  | YES  |     | NULL    |       |
+| mobileno  | varchar(15) | YES  |     | NULL    |       |
++-----------+-------------+------+-----+---------+-------+
+4 rows in set (0.00 sec)
+
+mysql> desc course;
++-------------+-------------+------+-----+---------+-------+
+| Field       | Type        | Null | Key | Default | Extra |
++-------------+-------------+------+-----+---------+-------+
+| course_name | varchar(20) | YES  |     | NULL    |       |
+| course_id   | varchar(6)  | NO   | PRI | NULL    |       |
+| course_sem  | int         | YES  |     | NULL    |       |
++-------------+-------------+------+-----+---------+-------+
+3 rows in set (0.00 sec)
+
+mysql> desc semister;
++-------------+-------------+------+-----+---------+-------+
+| Field       | Type        | Null | Key | Default | Extra |
++-------------+-------------+------+-----+---------+-------+
+| sem_no      | int         | NO   | PRI | NULL    |       |
+| course_name | varchar(20) | YES  |     | NULL    |       |
++-------------+-------------+------+-----+---------+-------+
+2 rows in set (0.00 sec)
+
+
